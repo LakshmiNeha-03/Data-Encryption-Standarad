@@ -1,0 +1,16 @@
+module test( );
+
+reg [64:1]text;
+reg [64:1]key;
+wire [64:1]cipher_text;
+
+encryption dut(text,key,cipher_text);
+initial
+begin
+#0 key=64'b0101010101010101010101010101010101010101010101010101010101010101;
+#0 text={32{2'b10}};
+
+
+#5 $monitor("%h",cipher_text);
+end
+endmodule
