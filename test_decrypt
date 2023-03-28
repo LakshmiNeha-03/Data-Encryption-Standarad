@@ -1,0 +1,18 @@
+`timescale 1ns / 1ps
+
+module test( );
+
+reg [64:1]cipher_text;
+reg [64:1]key;
+wire [64:1]plain_text;
+
+decryption dut(cipher_text,key,plain_text);
+initial
+begin
+#0 key=64'b0101010101010101010101010101010101010101010101010101010101010101;
+#0 cipher_text=64'h0301f9003956b1af ;
+
+
+#5 $monitor("cipher_text = %h, plain_text = %h ",cipher_text, plain_text);
+end
+endmodule
